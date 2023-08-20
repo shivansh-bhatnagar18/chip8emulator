@@ -1,7 +1,7 @@
-import Renderer from "./Renderer";
-import Mapping from "./Mapping";
-import Speaker from "./Speaker";
-import CPU from "./control";
+import Renderer from "Renderer.js";
+import Mapping from "Mapping.js";
+import Speaker from "Speaker.js";
+import CPU from "control.js";
 
 const renderer = new Renderer(10);
 const mapping = new Mapping();
