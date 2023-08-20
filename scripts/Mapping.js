@@ -1,4 +1,4 @@
-class mapping{
+class Mapping{
     constructor(){
         this.KEYMAPPING = {
             49: 0x1, // 1
@@ -26,6 +26,25 @@ class mapping{
         window.addEventListener('keydown', this.onKeyDown.bind(this), false);
         window.addEventListener('keyup', this.onKeyUp.bind(this), false);       
     }
+
+    isKeyPressed(keycode){
+        return this.keyPressed[keycode];
+    }
+
+    oneKeyDown(event){
+        let key = this.KEYMAPPING[event.which]; // finding the actual key from chip8 according to the mapping
+        this.keyPressed[key] = true;
+
+        if(this.oneNextKeyPressed != null && key){//checking for the specific dual keys which require another key to be pressed
+            this.oneNextKeyPressed(parseInt(key));
+            this.oneNextKeyPressed = null;
+        }
+    }
+
+    oneKeyUp(event){
+        let key = this.KEYMAPPING[event.which];
+        this.keyPressed[key] = false;
+    }
 }
 
-export default mapping;
+export default Mapping;

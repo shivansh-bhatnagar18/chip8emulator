@@ -1,6 +1,8 @@
-import renderer from "./renderer";
+import Renderer from "./Renderer";
+import Mapping from "./Mapping";
 
-const renderer = new renderer(10);
+const renderer = new Renderer(10);
+const mapping = new Mapping();
 
 let loop, fps = 60, fpsInterval, startTime, currentTime, pastTime, elapsed;
 

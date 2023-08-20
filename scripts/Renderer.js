@@ -1,4 +1,4 @@
-class renderer{
+class Renderer{
 
     constructor(scale){
 
@@ -60,4 +60,4 @@ class renderer{
     }
 
 }
-export default renderer
+export default Renderer
