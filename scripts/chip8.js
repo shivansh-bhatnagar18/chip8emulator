@@ -1,10 +1,12 @@
 import Renderer from "./Renderer";
 import Mapping from "./Mapping";
 import Speaker from "./Speaker";
+import CPU from "./control";
 
 const renderer = new Renderer(10);
 const mapping = new Mapping();
 const speaker = new Speaker();
+const cpu = new CPU(renderer, keyboard, speaker)
 
 let loop, fps = 60, fpsInterval, startTime, currentTime, pastTime, elapsed;
 
@@ -14,8 +16,8 @@ function init(){
     pastTime = Date.now();
     startTime = pastTime;
 
-    renderer.testrender();
-    renderer.render();
+    cpu.loadingSpritesInRAM();
+    cpu.loadROM('BLITZ'); 
 
     loop = requestAnimationFrame(step);
 }
@@ -25,7 +27,9 @@ function step(){
     currentTime = Date.now();
     elapsed = currentTime - pastTime;
 
-    if ( elapsed > fpsInterval){}
+    if ( elapsed > fpsInterval){
+        cpu.cycle();
+    }
     loop = requestAnimationFrame(step);
 }
 

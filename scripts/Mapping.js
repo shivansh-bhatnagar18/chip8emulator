@@ -16,7 +16,7 @@ class Mapping{
             90: 0xA, // Z
             88: 0x0, // X
             67: 0xB, // C
-            86: 0xF  // V Adopted this key mapping from freeCodeCamp.
+            86: 0xF  // V Adopted this key mapping given by chatGPT.
             //Chip8 has a hex key pad which needs to be mapped to keys on the keyboard for mimicing the hardware.
         }
 
