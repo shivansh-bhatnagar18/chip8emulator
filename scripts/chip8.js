@@ -17,7 +17,7 @@ function init(){
     startTime = pastTime;
 
     cpu.loadingSpritesInRAM();
-    cpu.loadROM('BLITZ'); 
+    cpu.loadROM('BLINKY'); 
 
     loop = requestAnimationFrame(step);
 }

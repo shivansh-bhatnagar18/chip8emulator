@@ -53,11 +53,5 @@ class Renderer{
             }
         }
     }
-
-    testrender(){
-        this.setPixel(0 , 0);
-        this.setPixel(5 , 3);
-    }
-
 }
 export default Renderer;
