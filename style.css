@@ -13,10 +13,10 @@ body {
   .upper-section {
     min-height: 50vh;
     width: 100%;
-    background: #34495e;
+    background: #b3c9df;
   }
   .lower-section{
-    min-height: 50vh;
+    min-height: 5vh;
     width: 100%;
     background:  #2c3e50;
   }
