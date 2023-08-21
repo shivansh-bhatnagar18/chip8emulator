@@ -17,11 +17,11 @@ class Mapping{
             88: 0x0, // X
             67: 0xB, // C
             86: 0xF  // V Adopted this key mapping given by chatGPT.
-            //Chip8 has a hex key pad which needs to be mapped to keys on the keyboard for mimicing the hardware.
+            //Chip8 has a hex key pad which needs to be mapped to keys on the keyboard to mimic the hardware.
         }
 
         this.keyPressed = [];
-        this.oneNextKeyPressed = null;
+        this.onNextKeyPressed = null;
         //for dual key presses
         window.addEventListener('keydown', this.onKeyDown.bind(this), false);
         window.addEventListener('keyup', this.onKeyUp.bind(this), false);       
@@ -31,17 +31,17 @@ class Mapping{
         return this.keyPressed[keycode];
     }
 
-    oneKeyDown(event){
+    onKeyDown(event){
         let key = this.KEYMAPPING[event.which]; // finding the actual key from chip8 according to the mapping
         this.keyPressed[key] = true;
 
-        if(this.oneNextKeyPressed != null && key){//checking for the specific dual keys which require another key to be pressed
-            this.oneNextKeyPressed(parseInt(key));
-            this.oneNextKeyPressed = null;
+        if(this.onNextKeyPressed != null && key){//checking for the specific dual keys which require another key to be pressed
+            this.onNextKeyPressed(parseInt(key));
+            this.onNextKeyPressed = null;
         }
     }
 
-    oneKeyUp(event){
+    onKeyUp(event){
         let key = this.KEYMAPPING[event.which];
         this.keyPressed[key] = false;
     }
