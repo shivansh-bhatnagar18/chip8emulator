@@ -305,12 +305,12 @@ class CPU{
                         break;
                     case 0x55:
                         for (let registerIndex = 0; registerIndex <= x; registerIndex++) {
-                            this.memory[this.i + registerIndex] = this.v[registerIndex];
+                            this.memory[this.i + registerIndex] = this.registers[registerIndex];
                         }
                         break;
                     case 0x65:
                         for (let registerIndex = 0; registerIndex <= x; registerIndex++) {
-                            this.v[registerIndex] = this.memory[this.i + registerIndex];
+                            this.registers[registerIndex] = this.memory[this.i + registerIndex];
                         }
                         break;
                 }
