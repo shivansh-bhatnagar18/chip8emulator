@@ -17,7 +17,7 @@ function init(){
     startTime = pastTime;
 
     cpu.loadingSpritesInRAM();
-    cpu.loadROM('BLINKY'); 
+    cpu.loadROM('PACMAN'); 
 
     loop = requestAnimationFrame(step);
 }

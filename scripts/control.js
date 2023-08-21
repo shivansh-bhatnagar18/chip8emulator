@@ -13,6 +13,9 @@ class CPU{
         this.program_counter = 0x200;
         //executing address stored
         this.register_stack = new Array();
+
+        this.delayTimer = 0;
+        this.soundTimer = 0;
         
         this.stop = false;
         //some registers require pausing
@@ -56,17 +59,18 @@ class CPU{
 
     loadROM(romrom){
         var request = new XMLHttpRequest;
+        var self = this;
         //for loading contents directly from the HTTPS
         request.onload = function() {
             if(request.response){
                 //if the request was able to retrienve responce from the server
                 let program = new Uint8Array(request.response);
-                this.loadROMIntoMemory(program);
+                self.loadROMIntoMemory(program);
                 //loading the got ROM data into the memory
             }
         }
 
-        request.open('GET','Games/'+rom);
+        request.open('GET','Games/'+romrom);
         request.responseType = 'arraybuffer';
 
         request.send();//send the get request from the games folder of the emulator
